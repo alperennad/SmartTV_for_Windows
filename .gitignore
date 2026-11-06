@@ -1,0 +1,28 @@
+# Node dependencies
+node_modules/
+package-lock.json
+
+# Local / build artifacts
+dist/
+build/
+out/
+
+# User-specific & Electron runtime cache
+mytv_config.json
+*.log
+npm-debug.log*
+
+# Windows thumbnail & OS files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# IDE & Editor files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

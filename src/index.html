@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MyTV for Windows</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body class="tv-mode">
+  <!-- Air Mouse Custom Glow Pointer -->
+  <div id="air-cursor" class="air-cursor"></div>
+
+  <!-- IN-APP IMMERSIVE TOP BAR (Visible when Netflix, YouTube etc. are running inside MyTV) -->
+  <div id="inapp-top-bar" class="inapp-top-bar hidden">
+    <div class="inapp-left">
+      <button class="inapp-btn" id="btn-inapp-back" title="Geri (Kumanda: Geri / Esc)">
+        <svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+        <span>Geri</span>
+      </button>
+      <button class="inapp-btn" id="btn-inapp-reload" title="Yenile">
+        <svg viewBox="0 0 24 24"><path d="M17.65 6.35A7.958 7.958 0 0 0 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08A5.99 5.99 0 0 1 12 18c-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/></svg>
+      </button>
+      <div class="inapp-title-badge" id="inapp-app-title">Netflix</div>
+    </div>
+    <div class="inapp-right">
+      <button class="inapp-btn" id="btn-inapp-keyboard" title="Ekran Klavyesi Aç/Kapat">
+        <svg viewBox="0 0 24 24"><path d="M20 5H4c-1.1 0-1.99.9-1.99 2L2 17c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm-9 3h2v2h-2V8zm0 3h2v2h-2v-2zM8 8h2v2H8V8zm0 3h2v2H8v-2zm-1 2H5v-2h2v2zm0-3H5V8h2v2zm9 7H8v-2h8v2zm0-4h-2v-2h2v2zm0-3h-2V8h2v2zm3 3h-2v-2h2v2zm0-3h-2V8h2v2z"/></svg>
+        <span>Klavye</span>
+      </button>
+      <button class="inapp-btn inapp-home-btn" id="btn-inapp-home" title="Ana Ekrana Dön">
+        <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+        <span>TV Ana Ekranı</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Ambient Backdrop Image with Vignette & Gradients -->
+  <div class="backdrop-wrapper">
+    <div id="backdrop-img" class="backdrop-image"></div>
+    <div class="backdrop-overlay"></div>
+    <div class="backdrop-vignette"></div>
+  </div>
+
+  <!-- Main TV Interface Layout -->
+  <div class="tv-container" id="main-tv-container">
+    
+    <!-- TOP NAVIGATION BAR -->
+    <header class="top-nav">
+      <!-- Brand Logo -->
+      <div class="brand">
+        <div class="win-logo-box">
+          <svg viewBox="0 0 88 88" class="win-logo-svg">
+            <path d="M0 12.402l35.689-4.857v34.425H0V12.402zm35.689 38.647v34.469L0 80.697V51.049h35.689zm4.847-44.179L87.12 0v41.97H40.536V6.87zm46.584 44.179v41.942l-46.584-6.837V51.049h46.584z" fill="#00a4ef"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">MyTV</span>
+          <span class="brand-sub">for Windows</span>
+        </div>
+      </div>
+
+      <!-- Center Navigation Pills (Focusable) -->
+      <nav class="nav-tabs" id="main-nav">
+        <button class="nav-btn active" data-tab="home" tabindex="0">
+          <svg class="nav-icon" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+          <span>Ana Ekran</span>
+        </button>
+        <button class="nav-btn" data-tab="livetv" tabindex="0">
+          <svg class="nav-icon" viewBox="0 0 24 24"><path d="M21 3H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h5v2h8v-2h5c1.1 0 1.99-.9 1.99-2L23 5c0-1.1-.9-2-2-2zm0 14H3V5h18v12zm-5-6l-7 4V7z"/></svg>
+          <span>Canlı TV</span>
+        </button>
+        <button class="nav-btn" data-tab="apps" tabindex="0">
+          <svg class="nav-icon" viewBox="0 0 24 24"><path d="M4 8h4V4H4v4zm6 12h4v-4h-4v4zm-6 0h4v-4H4v4zm0-6h4v-4H4v4zm6 0h4v-4h-4v4zm6-10v4h4V4h-4zm-6 4h4V4h-4v4zm6 6h4v-4h-4v4zm0 6h4v-4h-4v4z"/></svg>
+          <span>Uygulamalar</span>
+        </button>
+        <button class="nav-btn" data-tab="games" tabindex="0">
+          <svg class="nav-icon" viewBox="0 0 24 24"><path d="M21 6H3c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-10 7H8v3H6v-3H3v-2h3V8h2v3h3v2zm4.5 2c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm4-3c-.83 0-1.5-.67-1.5-1.5S18.67 9 19.5 9s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+          <span>Oyunlar</span>
+        </button>
+        <button class="nav-btn" data-tab="media" tabindex="0">
+          <svg class="nav-icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+          <span>Medya</span>
+        </button>
+        <button class="nav-btn" data-tab="settings" tabindex="0">
+          <svg class="nav-icon" viewBox="0 0 24 24"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg>
+          <span>Ayarlar</span>
+        </button>
+      </nav>
+
+      <!-- Status Bar (Wi-Fi, Clock, Date, Power) -->
+      <div class="top-status">
+        <div class="wifi-indicator" title="Wi-Fi Bağlı">
+          <svg viewBox="0 0 24 24" class="status-svg">
+            <path d="M12 4C7.31 4 3.07 5.9 0 8.98L12 21 24 8.98A16.88 16.88 0 0 0 12 4zm0 2c3.99 0 7.63 1.48 10.45 3.96L12 19.34 1.55 9.96A14.887 14.887 0 0 1 12 6z"/>
+          </svg>
+        </div>
+        <div class="clock-display">
+          <div id="live-time" class="time-text">23:14</div>
+          <div id="live-date" class="date-text">26 Oca Paz</div>
+        </div>
+        <button class="power-quick-btn" id="btn-quick-power" title="Uygulamayı Kapat" tabindex="0">
+          <svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- TAB 1: ANA EKRAN (HOME) -->
+    <main class="content-view active" id="view-home">
+      <!-- HERO SHOWCASE SECTION -->
+      <section class="hero-section" id="hero-slider">
+        <div class="hero-content">
+          <div class="hero-provider" id="hero-provider">NETFLIX</div>
+          <h1 class="hero-title" id="hero-title">STRANGER THINGS</h1>
+          <p class="hero-desc" id="hero-desc">
+            Hawkins'te doğaüstü olaylar geri dönüyor. Arkadaşlık, gizem ve başka bir boyut...
+          </p>
+          <div class="hero-actions">
+            <button class="hero-btn primary focusable" id="hero-play-btn" tabindex="0">
+              <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+              <span>İzle</span>
+            </button>
+            <button class="hero-btn secondary focusable" id="hero-details-btn" tabindex="0">
+              <svg viewBox="0 0 24 24"><path d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>
+              <span>Detaylar</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Slider Pagination Dots -->
+        <div class="slider-dots" id="hero-dots">
+          <span class="dot active"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </div>
+      </section>
+
+      <!-- ROW 1: UYGULAMALARIM -->
+      <section class="shelf-section">
+        <h2 class="shelf-title">Uygulamalarım</h2>
+        <div class="shelf-scroll-container">
+          <div class="apps-grid" id="apps-container"></div>
+        </div>
+      </section>
+
+      <!-- ROW 2: İZLEMEYE DEVAM ET -->
+      <section class="shelf-section">
+        <div class="shelf-header-row">
+          <h2 class="shelf-title">İzlemeye Devam Et</h2>
+          <button class="shelf-clear-btn focusable" id="btn-clear-history" title="Geçmişi Temizle" tabindex="0">Temizle</button>
+        </div>
+        <div class="shelf-scroll-container">
+          <div class="continue-grid" id="continue-container"></div>
+        </div>
+      </section>
+    </main>
+
+    <!-- TAB 1.5: CANLI TV (LEANBACK SMART LIVE TV PLAYER) -->
+    <section class="content-view" id="view-livetv">
+      <div class="livetv-container">
+        <!-- Sol Panel: Kategoriler ve Kanal Listesi -->
+        <div class="livetv-sidebar">
+          <div class="livetv-sidebar-header">
+            <div class="livetv-badge">
+              <span class="pulse-dot"></span> CANLI YAYIN
+            </div>
+            <h3>TV Kanalları</h3>
+            <!-- Kategori Filtre Butonları -->
+            <div class="livetv-categories" id="livetv-categories">
+              <button class="livetv-cat-btn active focusable" data-cat="all" tabindex="0">Tümü</button>
+              <button class="livetv-cat-btn focusable" data-cat="Ulusal" tabindex="0">Ulusal</button>
+              <button class="livetv-cat-btn focusable" data-cat="Haber" tabindex="0">Haber</button>
+              <button class="livetv-cat-btn focusable" data-cat="Spor" tabindex="0">Spor</button>
+              <button class="livetv-cat-btn focusable" data-cat="Ekonomi" tabindex="0">Ekonomi</button>
+              <button class="livetv-cat-btn focusable" data-cat="Müzik" tabindex="0">Müzik</button>
+              <button class="livetv-cat-btn focusable" data-cat="Çocuk" tabindex="0">Çocuk</button>
+            </div>
+          </div>
+
+          <!-- D-pad ile kaydırılabilir kanal listesi -->
+          <div class="livetv-channels-scroll" id="livetv-channels-list">
+            <!-- JavaScript ile doldurulacak -->
+          </div>
+        </div>
+
+        <!-- Sağ Panel: Büyük Sinematik TV Oynatıcı & Canlı Bilgi Barı -->
+        <div class="livetv-player-pane">
+          <div class="livetv-video-wrapper" id="livetv-video-wrapper">
+            <video id="livetv-video" class="livetv-video" playsinline></video>
+            
+            <!-- Canlı Oynatıcı Durum & Yükleme Katmanı -->
+            <div class="livetv-loading-overlay hidden" id="livetv-loading">
+              <div class="livetv-spinner"></div>
+              <span id="livetv-loading-text">Yayın Bağlanıyor...</span>
+            </div>
+
+            <!-- Smart TV OSD Kanal Bilgi Kartı (Zap yapınca 4 sn görünür) -->
+            <div class="livetv-osd-banner" id="livetv-osd">
+              <div class="osd-left">
+                <span class="osd-ch-num" id="osd-num">01</span>
+                <div class="osd-logo-box">
+                  <img id="osd-logo" src="" alt="Kanal">
+                </div>
+                <div class="osd-text">
+                  <div class="osd-title-row">
+                    <h2 id="osd-title">TRT 1 HD</h2>
+                    <span class="osd-badge">1080p FULL HD</span>
+                    <span class="osd-live-tag">CANLI</span>
+                  </div>
+                  <p id="osd-desc">Türkiye Radyo Televizyon Kurumu Resmi Canlı Yayını</p>
+                </div>
+              </div>
+              <div class="osd-right">
+                <div class="osd-hints">
+                  <span>▲ ▼ : Kanal Değiştir</span>
+                  <span>OK : Tam Ekran</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Video Oynatıcı Kontrolleri (Alt Bar) -->
+            <div class="livetv-player-controls">
+              <div class="controls-left">
+                <button class="tv-ctrl-btn focusable" id="btn-tv-prev" title="Önceki Kanal" tabindex="0">
+                  <svg viewBox="0 0 24 24"><path d="M6 6h2v12H6zm3.5 6l8.5 6V6z"/></svg>
+                </button>
+                <button class="tv-ctrl-btn focusable" id="btn-tv-playpause" title="Oynat / Durdur" tabindex="0">
+                  <svg id="icon-tv-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                  <svg id="icon-tv-pause" class="hidden" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+                </button>
+                <button class="tv-ctrl-btn focusable" id="btn-tv-next" title="Sonraki Kanal" tabindex="0">
+                  <svg viewBox="0 0 24 24"><path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z"/></svg>
+                </button>
+                <span class="livetv-current-name" id="player-current-name">TRT 1 HD</span>
+              </div>
+              <div class="controls-right">
+                <button class="tv-ctrl-btn focusable" id="btn-tv-mute" title="Sessize Al" tabindex="0">
+                  <svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
+                </button>
+                <button class="tv-ctrl-btn focusable" id="btn-tv-fullscreen" title="Tam Ekran TV Modu (F)" tabindex="0">
+                  <svg viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 2: UYGULAMALAR (APPS BROWSER) -->
+    <section class="content-view" id="view-apps">
+      <div class="page-header">
+        <h2>Tüm Uygulamalar</h2>
+        <p>Tüm uygulamalar ve içerikler harici tarayıcıya gitmeden doğrudan bu TV arayüzünde açılır.</p>
+      </div>
+      <div class="full-apps-grid" id="all-apps-container"></div>
+    </section>
+
+    <!-- TAB 3: OYUNLAR (GAMING HUB) -->
+    <section class="content-view" id="view-games">
+      <div class="page-header">
+        <h2>Oyun Merkezi</h2>
+        <p>Steam Big Picture veya bulut oyun servislerinizi koltuk rahatlığında başlatın.</p>
+      </div>
+      <div class="games-hub-grid">
+        <div class="game-launcher-card focusable" data-target="steam://open/bigpicture" tabindex="0">
+          <div class="game-card-bg steam-bg"></div>
+          <div class="game-card-content">
+            <span class="badge-pill">ÖNERİLEN</span>
+            <h3>Steam Big Picture</h3>
+            <p>TV deneyimi için optimize edilmiş Steam arayüzünü tam ekran başlat.</p>
+            <button class="tv-action-btn">Başlat</button>
+          </div>
+        </div>
+        <div class="game-launcher-card focusable" data-target="https://www.xbox.com/play" tabindex="0">
+          <div class="game-card-bg xbox-bg"></div>
+          <div class="game-card-content">
+            <span class="badge-pill">BULUT OYUN</span>
+            <h3>Xbox Cloud Gaming</h3>
+            <p>Konsol kalitesinde yüzlerce oyunu uygulama içinde tam ekran oynayın.</p>
+            <button class="tv-action-btn">Uygulama İçi Oyna</button>
+          </div>
+        </div>
+        <div class="game-launcher-card focusable" data-target="https://play.geforcenow.com" tabindex="0">
+          <div class="game-card-bg geforce-bg"></div>
+          <div class="game-card-content">
+            <span class="badge-pill">RTX ON</span>
+            <h3>GeForce NOW</h3>
+            <p>Buluttan yüksek grafikli PC oyunlarınızı TV'nize aktarın.</p>
+            <button class="tv-action-btn">Uygulama İçi Oyna</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 4: MEDYA (MEDIA) -->
+    <section class="content-view" id="view-media">
+      <div class="page-header">
+        <h2>Medya & Yayınlar</h2>
+        <p>Uygulama içi gömülü video, müzik ve canlı yayın servisleri</p>
+      </div>
+      <div class="media-stream-grid">
+        <div class="media-banner-card focusable" data-target="https://www.youtube.com/tv" data-title="YouTube TV" tabindex="0" style="--accent:#FF0000;">
+          <div class="media-title">YouTube for TV</div>
+          <div class="media-sub">YouTube TV Leanback Arayüzü (Uygulama İçi)</div>
+        </div>
+        <div class="media-banner-card focusable" data-target="https://www.netflix.com" data-title="Netflix" tabindex="0" style="--accent:#E50914;">
+          <div class="media-title">Netflix</div>
+          <div class="media-sub">Film, Dizi ve Orijinal İçerikler (Uygulama İçi)</div>
+        </div>
+        <div class="media-banner-card focusable" data-target="https://open.spotify.com" data-title="Spotify" tabindex="0" style="--accent:#1DB954;">
+          <div class="media-title">Spotify</div>
+          <div class="media-sub">Milyonlarca Şarkı ve Podcast (Uygulama İçi)</div>
+        </div>
+        <div class="media-banner-card focusable" data-target="https://www.twitch.tv" data-title="Twitch" tabindex="0" style="--accent:#9146FF;">
+          <div class="media-title">Twitch</div>
+          <div class="media-sub">Canlı Yayınlar ve Turnuvalar (Uygulama İçi)</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 5: AYARLAR (SETTINGS) -->
+    <section class="content-view" id="view-settings">
+      <div class="page-header">
+        <h2>Sistem ve TV Ayarları</h2>
+        <p>Air Mouse hassasiyeti, ekran yönetimi ve Windows kontrolleri</p>
+      </div>
+
+      <div class="settings-grid">
+        <div class="settings-card">
+          <h3>Air Mouse & Kumanda Deneyimi</h3>
+          <div class="setting-row">
+            <div class="setting-info">
+              <span class="setting-name">Görsel Lazer İşaretçi</span>
+              <span class="setting-sub">Air mouse hareket ettiğinde TV tarzı yumuşak neon odak noktası gösterir.</span>
+            </div>
+            <label class="switch">
+              <input type="checkbox" id="setting-laser" checked>
+              <span class="slider round"></span>
+            </label>
+          </div>
+
+          <div class="setting-row">
+            <div class="setting-info">
+              <span class="setting-name">Ses Efektleri (Hover & Tıklama)</span>
+              <span class="setting-sub">Menüler arasında dolaşırken sesli TV geribildirimi.</span>
+            </div>
+            <label class="switch">
+              <input type="checkbox" id="setting-sound" checked>
+              <span class="slider round"></span>
+            </label>
+          </div>
+        </div>
+
+        <div class="settings-card">
+          <h3>Ekran ve Pencere Modu</h3>
+          <div class="setting-row">
+            <div class="setting-info">
+              <span class="setting-name">Tam Ekran / TV Modu (Kiosk)</span>
+              <span class="setting-sub">Windows masaüstünü gizleyip sadece TV'yi gösterir. (F11)</span>
+            </div>
+            <button class="settings-btn" id="btn-toggle-fullscreen">Tam Ekranı Değiştir</button>
+          </div>
+        </div>
+
+        <div class="settings-card">
+          <h3>Windows Güç Yönetimi</h3>
+          <p class="setting-sub mb-3">Kumandanızın tek tuşuyla Windows'u yönetin:</p>
+          <div class="power-buttons-row">
+            <button class="power-btn sleep focusable" data-action="sleep" tabindex="0">
+              <svg viewBox="0 0 24 24"><path d="M12.3 2a10 10 0 0 0-1.9 20 10 10 0 0 0 8.7-5.1A10 10 0 0 1 12.3 2z"/></svg>
+              <span>Uyku Modu</span>
+            </button>
+            <button class="power-btn restart focusable" data-action="restart" tabindex="0">
+              <svg viewBox="0 0 24 24"><path d="M17.65 6.35A7.958 7.958 0 0 0 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08A5.99 5.99 0 0 1 12 18c-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/></svg>
+              <span>Yeniden Başlat</span>
+            </button>
+            <button class="power-btn shutdown focusable" data-action="shutdown" tabindex="0">
+              <svg viewBox="0 0 24 24"><path d="M13 3h-2v10h2V3zm4.83 2.17l-1.42 1.42C17.99 7.86 19 9.81 19 12c0 3.87-3.13 7-7 7s-7-3.13-7-7c0-2.19 1.01-4.14 2.58-5.42L6.17 5.17C4.23 6.82 3 9.26 3 12c0 4.97 4.03 9 9 9s9-4.03 9-9c0-2.74-1.23-5.18-3.17-6.83z"/></svg>
+              <span>Bilgisayarı Kapat</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ADD APPLICATION MODAL -->
+  <div class="modal-overlay" id="add-app-modal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>Yeni Uygulama veya Kısayol Ekle</h3>
+        <button class="modal-close" id="modal-close-btn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label>Uygulama Adı</label>
+          <input type="text" id="new-app-title" placeholder="Örn: Kodi, Disney+, Exxen, Bein Connect">
+        </div>
+        <div class="form-group">
+          <label>Kategori / Tür</label>
+          <div class="radio-group">
+            <label><input type="radio" name="app-type" value="url" checked> Web Sitesi (Uygulama İçi Açar)</label>
+            <label><input type="radio" name="app-type" value="cmd"> Windows Programı (.exe)</label>
+          </div>
+        </div>
+        <div class="form-group" id="url-input-group">
+          <label>Web Adresi (URL)</label>
+          <input type="text" id="new-app-target" placeholder="https://...">
+        </div>
+        <div class="form-group hidden" id="file-picker-group">
+          <label>Windows Programı (.exe)</label>
+          <div class="file-picker-row">
+            <input type="text" id="new-app-exe-path" placeholder="C:\Games\Kodi\kodi.exe" readonly>
+            <button class="browse-btn" id="btn-browse-exe">Gözat...</button>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Kart Rengi</label>
+          <div class="color-picker-row">
+            <span class="color-swatch active" style="--c:#3b82f6" data-color="#3b82f6"></span>
+            <span class="color-swatch" style="--c:#ef4444" data-color="#ef4444"></span>
+            <span class="color-swatch" style="--c:#10b981" data-color="#10b981"></span>
+            <span class="color-swatch" style="--c:#8b5cf6" data-color="#8b5cf6"></span>
+            <span class="color-swatch" style="--c:#f59e0b" data-color="#f59e0b"></span>
+            <span class="color-swatch" style="--c:#1f2937" data-color="#1f2937"></span>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-cancel" id="btn-cancel-modal">İptal</button>
+        <button class="btn-save" id="btn-save-app">Uygulamayı Ekle</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- POWER CONFIRMATION MODAL -->
+  <div class="modal-overlay" id="power-confirm-modal">
+    <div class="modal-card small">
+      <div class="modal-header">
+        <h3 id="power-modal-title">Bilgisayarı Kapat</h3>
+      </div>
+      <div class="modal-body">
+        <p id="power-modal-desc">Bilgisayar kapatılsın mı?</p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-cancel" id="btn-power-cancel">Vazgeç</button>
+        <button class="btn-save btn-danger" id="btn-power-confirm">Evet, Kapat</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- VOLUME OSD (TV ON-SCREEN DISPLAY) -->
+  <div id="volume-osd" class="volume-osd hidden">
+    <div class="vol-icon" id="vol-icon">
+      <svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
+    </div>
+    <div class="vol-content">
+      <div class="vol-info">
+        <span class="vol-label">Ses Seviyesi</span>
+        <span class="vol-value" id="vol-value">50%</span>
+      </div>
+      <div class="vol-bar-bg">
+        <div class="vol-bar-fill" id="vol-bar-fill" style="width: 50%;"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ON-SCREEN TV VIRTUAL KEYBOARD (Kumanda / Air Mouse Arama Klavyesi) -->
+  <div id="virtual-keyboard" class="virtual-keyboard hidden">
+    <div class="vk-header">
+      <div class="vk-input-box">
+        <input type="text" id="vk-preview-input" placeholder="Aramak istediğiniz şeyi yazın..." readonly>
+        <button class="vk-clear-input" id="btn-vk-clear" title="Temizle">✕</button>
+      </div>
+      <div class="vk-actions">
+        <button class="vk-btn-send" id="btn-vk-search">Ara / Gönder</button>
+        <button class="vk-btn-close" id="btn-vk-close">✕</button>
+      </div>
+    </div>
+    <div class="vk-body" id="vk-keys-container">
+      <!-- Generated rows of keys -->
+    </div>
+  </div>
+
+  <!-- HLS Video Player Engine -->
+  <script src="hls.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
