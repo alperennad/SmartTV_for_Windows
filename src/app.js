@@ -769,6 +769,37 @@
     }
   }
 
+  let numpadInputBuffer = '';
+  let numpadInputTimer = null;
+
+  function handleNumpadChannelInput(digit) {
+    numpadInputBuffer += digit;
+    playTvBeep('focus');
+
+    // Show temporary numpad OSD
+    if (liveTvOsd) {
+      osdNumEl.textContent = numpadInputBuffer.padStart(2, '0');
+      osdTitleEl.textContent = `Kanal ${numpadInputBuffer}...`;
+      osdDescEl.textContent = 'Kanal numarası tuşlandı, bekleniyor...';
+      liveTvOsd.classList.remove('hidden');
+    }
+
+    clearTimeout(numpadInputTimer);
+    numpadInputTimer = setTimeout(() => {
+      const chNum = parseInt(numpadInputBuffer, 10);
+      numpadInputBuffer = '';
+      const targetIdx = channelsList.findIndex(c => c.number === chNum);
+      if (targetIdx !== -1) {
+        playChannel(targetIdx);
+      } else {
+        if (liveTvOsd) {
+          osdDescEl.textContent = `Kanal ${chNum} bulunamadı.`;
+          setTimeout(() => liveTvOsd.classList.add('hidden'), 1500);
+        }
+      }
+    }, 1200);
+  }
+
   // Category filter clicks
   if (liveTvCategoriesContainer) {
     const catButtons = liveTvCategoriesContainer.querySelectorAll('.livetv-cat-btn');
@@ -986,6 +1017,13 @@
 
     // Channel Zap Shortcuts with 'PageUp' / 'PageDown' or 'p' / 'n'
     if (views.livetv && views.livetv.classList.contains('active')) {
+      // Direct numeric channel selection (0-9)
+      if (/^[0-9]$/.test(e.key) && !isVkOpen && (!document.activeElement || !['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName))) {
+        e.preventDefault();
+        handleNumpadChannelInput(e.key);
+        return;
+      }
+
       if (e.key === 'PageUp' || e.key === 'p' || e.key === 'P') {
         e.preventDefault();
         playChannel(currentChannelIndex - 1);

@@ -66,14 +66,41 @@
     "id": "a2",
     "number": 8,
     "name": "A2 TV",
-    "category": "Dizi / Sinema",
+    "category": "Ulusal",
     "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/A2_tv_logo.png/512px-A2_tv_logo.png",
     "url": "https://rnttwmjcin.turknet.ercdn.net/lcpmvefbyo/a2tv/a2tv.m3u8",
     "desc": "Nostaljik ve efsaneleşmiş yerli diziler"
   },
   {
-    "id": "ntv",
+    "id": "eurod",
     "number": 9,
+    "name": "Euro D",
+    "category": "Ulusal",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Kanal_D_logo.svg/512px-Kanal_D_logo.svg.png",
+    "url": "https://live.duhnet.tv/S2/HLS_LIVE/eurodnp/playlist.m3u8",
+    "desc": "Avrupa ve yurt dışı canlı yayını"
+  },
+  {
+    "id": "tv4",
+    "number": 10,
+    "name": "TV4",
+    "category": "Ulusal",
+    "logo": "https://upload.wikimedia.org/wikipedia/tr/thumb/8/88/TV4_logo.png/512px-TV4_logo.png",
+    "url": "https://turkmedya-live.ercdn.net/tv4/tv4.m3u8",
+    "desc": "Kadın, yaşam, dizi ve eğlence kuşağı"
+  },
+  {
+    "id": "360tv",
+    "number": 11,
+    "name": "360 TV",
+    "category": "Ulusal",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/360_TV_logo.svg/512px-360_TV_logo.svg.png",
+    "url": "https://turkmedya-live.ercdn.net/tv360/tv360.m3u8",
+    "desc": "Yarışma, yaşam, magazin ve sinema filmleri"
+  },
+  {
+    "id": "ntv",
+    "number": 12,
     "name": "NTV",
     "category": "Haber",
     "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/NTV_logo.svg/512px-NTV_logo.svg.png",
@@ -82,7 +109,7 @@
   },
   {
     "id": "halktv",
-    "number": 10,
+    "number": 13,
     "name": "Halk TV",
     "category": "Haber",
     "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Halk_TV_logo.svg/512px-Halk_TV_logo.svg.png",
@@ -90,8 +117,17 @@
     "desc": "Bağımsız ve tarafsız canlı haber yayınları, tartışma programları"
   },
   {
+    "id": "haberglobal",
+    "number": 14,
+    "name": "Haber Global",
+    "category": "Haber",
+    "logo": "https://upload.wikimedia.org/wikipedia/tr/thumb/0/07/Haber_Global_logo.png/512px-Haber_Global_logo.png",
+    "url": "https://tv.ensonhaber.com/haberglobal/haberglobal.m3u8",
+    "desc": "Sıcak gündem haberleri, canlı bağlantılar ve özel röportajlar"
+  },
+  {
     "id": "ahaber",
-    "number": 11,
+    "number": 15,
     "name": "A Haber",
     "category": "Haber",
     "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/A_Haber_logo.svg/512px-A_Haber_logo.svg.png",
@@ -100,7 +136,7 @@
   },
   {
     "id": "haberturk",
-    "number": 12,
+    "number": 16,
     "name": "Habertürk TV",
     "category": "Haber",
     "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Habert%C3%BCrk_TV_logo.svg/512px-Habert%C3%BCrk_TV_logo.svg.png",
@@ -109,7 +145,7 @@
   },
   {
     "id": "trthaber",
-    "number": 13,
+    "number": 17,
     "name": "TRT Haber",
     "category": "Haber",
     "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/TRT_Haber_logo.svg/512px-TRT_Haber_logo.svg.png",
@@ -118,7 +154,7 @@
   },
   {
     "id": "tgrthaber",
-    "number": 14,
+    "number": 18,
     "name": "TGRT Haber",
     "category": "Haber",
     "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/TGRT_Haber_logo.svg/512px-TGRT_Haber_logo.svg.png",
@@ -127,7 +163,7 @@
   },
   {
     "id": "tv24",
-    "number": 15,
+    "number": 19,
     "name": "24 TV",
     "category": "Haber",
     "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/24_TV_logo.svg/512px-24_TV_logo.svg.png",
@@ -135,8 +171,26 @@
     "desc": "Türk Medya - Anlık Gündem, Ekonomi ve Politika"
   },
   {
+    "id": "trtworld",
+    "number": 20,
+    "name": "TRT World",
+    "category": "Haber",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/TRT_World_logo.svg/512px-TRT_World_logo.svg.png",
+    "url": "https://tv-trtworld.medya.trt.com.tr/master.m3u8",
+    "desc": "TRT Uluslararası İngilizce Haber Yayın Akışı"
+  },
+  {
+    "id": "tbmmtv",
+    "number": 21,
+    "name": "TBMM TV",
+    "category": "Haber",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/TRT_1_logo.svg/512px-TRT_1_logo.svg.png",
+    "url": "https://meclistv-live.ercdn.net/meclistv/meclistv.m3u8",
+    "desc": "Türkiye Büyük Millet Meclisi Genel Kurul Canlı Yayını"
+  },
+  {
     "id": "cnbce",
-    "number": 16,
+    "number": 22,
     "name": "CNBC-e",
     "category": "Ekonomi",
     "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/CNBC-e_logo.svg/512px-CNBC-e_logo.svg.png",
@@ -145,7 +199,7 @@
   },
   {
     "id": "bloomberg",
-    "number": 17,
+    "number": 23,
     "name": "Bloomberg HT",
     "category": "Ekonomi",
     "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Bloomberg_HT_logo.svg/512px-Bloomberg_HT_logo.svg.png",
@@ -154,7 +208,7 @@
   },
   {
     "id": "ekoturk",
-    "number": 18,
+    "number": 24,
     "name": "Ekotürk",
     "category": "Ekonomi",
     "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Ekot%C3%BCrk_logo.png/512px-Ekot%C3%BCrk_logo.png",
@@ -163,7 +217,7 @@
   },
   {
     "id": "trtspor",
-    "number": 19,
+    "number": 25,
     "name": "TRT Spor",
     "category": "Spor",
     "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/TRT_Spor_logo.svg/512px-TRT_Spor_logo.svg.png",
@@ -171,8 +225,17 @@
     "desc": "Süper Lig özetleri, Milli maçlar ve uluslararası spor müsabakaları"
   },
   {
+    "id": "trtsporyildiz",
+    "number": 26,
+    "name": "TRT Spor Yıldız",
+    "category": "Spor",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/TRT_Spor_logo.svg/512px-TRT_Spor_logo.svg.png",
+    "url": "https://trt.daioncdn.net/trtspor-yildiz/master.m3u8?app=web&platform=trtspor",
+    "desc": "Olimpiyat branşları, Voleybol, Basketbol ve Güreş canlı yayınları"
+  },
+  {
     "id": "aspor",
-    "number": 20,
+    "number": 27,
     "name": "A Spor",
     "category": "Spor",
     "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/A_Spor_logo.svg/512px-A_Spor_logo.svg.png",
@@ -181,7 +244,7 @@
   },
   {
     "id": "htspor",
-    "number": 21,
+    "number": 28,
     "name": "HT Spor",
     "category": "Spor",
     "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/HT_Spor_logo.png/512px-HT_Spor_logo.png",
@@ -189,8 +252,17 @@
     "desc": "Ciner Medya - Güncel Spor Dünyası, Maç Önü ve Sonrası Yorumlar"
   },
   {
+    "id": "fbtv",
+    "number": 29,
+    "name": "Fenerbahçe TV",
+    "category": "Spor",
+    "logo": "https://upload.wikimedia.org/wikipedia/tr/thumb/8/86/Fenerbah%C3%A7e_SK.png/512px-Fenerbah%C3%A7e_SK.png",
+    "url": "http://1hskrdto.rocketcdn.com/fenerbahcetv.smil/playlist.m3u8",
+    "desc": "Fenerbahçe Spor Kulübü Resmi Televizyon Kanalı"
+  },
+  {
     "id": "tjktv",
-    "number": 22,
+    "number": 30,
     "name": "TJK TV",
     "category": "Spor",
     "logo": "https://upload.wikimedia.org/wikipedia/tr/thumb/8/8c/TJK_TV_logo.png/512px-TJK_TV_logo.png",
@@ -198,8 +270,62 @@
     "desc": "Türkiye Jokey Kulübü Resmi Canlı Yarış Kanalı"
   },
   {
+    "id": "tgrtbelgesel",
+    "number": 31,
+    "name": "TGRT Belgesel",
+    "category": "Belgesel",
+    "logo": "https://upload.wikimedia.org/wikipedia/tr/thumb/d/dd/TGRT_Belgesel_logo.png/512px-TGRT_Belgesel_logo.png",
+    "url": "https://b01c02nl.mediatriple.net/videoonlylive/mtsxxkzwwuqtglive/broadcast_5fe462afc6a0e.smil/playlist.m3u8",
+    "desc": "Tarih, medeniyet, doğa ve kültür belgeselleri"
+  },
+  {
+    "id": "vavtv",
+    "number": 32,
+    "name": "Vav TV",
+    "category": "Belgesel",
+    "logo": "https://upload.wikimedia.org/wikipedia/tr/thumb/3/30/Vav_TV_logo.png/512px-Vav_TV_logo.png",
+    "url": "https://playlist.fasttvcdn.com/pl/rfrk9821hdy9dayo8wfyha/kltr-sanat-tv/playlist.m3u8",
+    "desc": "Kültür, Sanat, Tarih ve Medeniyet Kuşağı"
+  },
+  {
+    "id": "trt2",
+    "number": 33,
+    "name": "TRT 2",
+    "category": "Belgesel",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/TRT_1_logo.svg/512px-TRT_1_logo.svg.png",
+    "url": "https://tv-trt2.medya.trt.com.tr/master.m3u8",
+    "desc": "TRT Kültür, Sanat, Edebiyat ve Sinema Kanalı"
+  },
+  {
+    "id": "trtturk",
+    "number": 34,
+    "name": "TRT Türk",
+    "category": "Kültür",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/TRT_1_logo.svg/512px-TRT_1_logo.svg.png",
+    "url": "https://tv-trtturk.medya.trt.com.tr/master.m3u8",
+    "desc": "Gurbetçiler ve Türk dünyası kültür programları"
+  },
+  {
+    "id": "trtavaz",
+    "number": 35,
+    "name": "TRT Avaz",
+    "category": "Kültür",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/TRT_1_logo.svg/512px-TRT_1_logo.svg.png",
+    "url": "https://tv-trtavaz.medya.trt.com.tr/master.m3u8",
+    "desc": "Balkanlar, Kafkaslar ve Orta Asya Türk Toplulukları Kanalı"
+  },
+  {
+    "id": "diyanet",
+    "number": 36,
+    "name": "Diyanet TV",
+    "category": "Kültür",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Diyanet_TV_logo.svg/512px-Diyanet_TV_logo.svg.png",
+    "url": "https://eustr73.mediatriple.net/videoonlylive/mtikoimxnztxlive/broadcast_5e3bf95a47e07.smil/playlist.m3u8",
+    "desc": "Dini, ahlaki, kültürel programlar ve belgeseller"
+  },
+  {
     "id": "trtcocuk",
-    "number": 23,
+    "number": 37,
     "name": "TRT Çocuk",
     "category": "Çocuk",
     "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/TRT_%C3%87ocuk_logo.svg/512px-TRT_%C3%87ocuk_logo.svg.png",
@@ -207,8 +333,17 @@
     "desc": "Rafadan Tayfa, İbi, Ege ile Gaga ve eğitici yerli çizgi diziler"
   },
   {
+    "id": "trtdiyanetcocuk",
+    "number": 38,
+    "name": "TRT Diyanet Çocuk",
+    "category": "Çocuk",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/TRT_%C3%87ocuk_logo.svg/512px-TRT_%C3%87ocuk_logo.svg.png",
+    "url": "https://tv-trtdiyanetcocuk.medya.trt.com.tr/master.m3u8",
+    "desc": "Milli ve manevi değerleri aşılayan eğitici çocuk yayınları"
+  },
+  {
     "id": "minikacocuk",
-    "number": 24,
+    "number": 39,
     "name": "Minika Çocuk",
     "category": "Çocuk",
     "logo": "https://upload.wikimedia.org/wikipedia/tr/thumb/d/d4/Minika_%C3%87ocuk_logo.png/512px-Minika_%C3%87ocuk_logo.png",
@@ -217,7 +352,7 @@
   },
   {
     "id": "minikago",
-    "number": 25,
+    "number": 40,
     "name": "Minika Go",
     "category": "Çocuk",
     "logo": "https://upload.wikimedia.org/wikipedia/tr/thumb/3/36/Minika_GO_logo.png/512px-Minika_GO_logo.png",
@@ -226,7 +361,7 @@
   },
   {
     "id": "kralpop",
-    "number": 26,
+    "number": 41,
     "name": "Kral Pop TV",
     "category": "Müzik",
     "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Kral_Pop_TV_logo.svg/512px-Kral_Pop_TV_logo.svg.png",
@@ -235,7 +370,7 @@
   },
   {
     "id": "powerturk",
-    "number": 27,
+    "number": 42,
     "name": "PowerTürk TV",
     "category": "Müzik",
     "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Power_T%C3%BCrk_TV_logo.svg/512px-Power_T%C3%BCrk_TV_logo.svg.png",
@@ -243,8 +378,53 @@
     "desc": "Önce Müzik - Türkçe pop, rock ve alternatif video klipler"
   },
   {
+    "id": "powertv",
+    "number": 43,
+    "name": "Power TV",
+    "category": "Müzik",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Power_T%C3%BCrk_TV_logo.svg/512px-Power_T%C3%BCrk_TV_logo.svg.png",
+    "url": "https://livetv.powerapp.com.tr/powerTV/powerhd.smil/playlist.m3u8",
+    "desc": "Dünya ve yabancı pop hitleri, Billboard top listeler"
+  },
+  {
+    "id": "powerslow",
+    "number": 44,
+    "name": "Power Slow",
+    "category": "Müzik",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Power_T%C3%BCrk_TV_logo.svg/512px-Power_T%C3%BCrk_TV_logo.svg.png",
+    "url": "https://livetv.powerapp.com.tr/pturkslow/slow.smil/playlist.m3u8",
+    "desc": "Romantik, duygusal ve akustik video klipler"
+  },
+  {
+    "id": "powerdance",
+    "number": 45,
+    "name": "Power Dance",
+    "category": "Müzik",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Power_T%C3%BCrk_TV_logo.svg/512px-Power_T%C3%BCrk_TV_logo.svg.png",
+    "url": "https://livetv.powerapp.com.tr/dance/dance.smil/playlist.m3u8",
+    "desc": "Kulüp, elektronik, dans ve EDM hitleri"
+  },
+  {
+    "id": "number1",
+    "number": 46,
+    "name": "Number 1 TV",
+    "category": "Müzik",
+    "logo": "https://upload.wikimedia.org/wikipedia/tr/thumb/7/77/Number_1_TV_logo.png/512px-Number_1_TV_logo.png",
+    "url": "https://b01c02nl.mediatriple.net/videoonlylive/mtkgeuihrlfwlive/broadcast_5c9e17cd59e8b.smil/playlist.m3u8",
+    "desc": "Yabancı müzik klipleri, chart listeleri ve özel etkinlikler"
+  },
+  {
+    "id": "number1turk",
+    "number": 47,
+    "name": "Number 1 Türk",
+    "category": "Müzik",
+    "logo": "https://upload.wikimedia.org/wikipedia/tr/thumb/7/77/Number_1_TV_logo.png/512px-Number_1_TV_logo.png",
+    "url": "https://b01c02nl.mediatriple.net/videoonlylive/mtkgeuihrlfwlive/u_stream_5c9e18f9cea15_1/playlist.m3u8",
+    "desc": "Türkçe pop ve hit müzik klipleri"
+  },
+  {
     "id": "dreamturk",
-    "number": 28,
+    "number": 48,
     "name": "Dream Türk",
     "category": "Müzik",
     "logo": "https://upload.wikimedia.org/wikipedia/tr/thumb/a/a2/Dream_T%C3%BCrk_logo.png/512px-Dream_T%C3%BCrk_logo.png",
@@ -252,30 +432,12 @@
     "desc": "Gençlik ve popüler müzik kanalı"
   },
   {
-    "id": "tgrtbelgesel",
-    "number": 29,
-    "name": "TGRT Belgesel",
-    "category": "Belgesel",
-    "logo": "https://upload.wikimedia.org/wikipedia/tr/thumb/d/dd/TGRT_Belgesel_logo.png/512px-TGRT_Belgesel_logo.png",
-    "url": "https://b01c02nl.mediatriple.net/videoonlylive/mtsxxkzwwuqtglive/broadcast_5fe462afc6a0e.smil/playlist.m3u8",
-    "desc": "Tarih, medeniyet, doğa ve kültür belgeselleri"
-  },
-  {
-    "id": "360tv",
-    "number": 30,
-    "name": "360 TV",
-    "category": "Yaşam",
-    "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/360_TV_logo.svg/512px-360_TV_logo.svg.png",
-    "url": "https://turkmedya-live.ercdn.net/tv360/tv360.m3u8",
-    "desc": "Yarışma, yaşam, magazin ve sinema filmleri"
-  },
-  {
-    "id": "diyanet",
-    "number": 31,
-    "name": "Diyanet TV",
-    "category": "Kültür",
-    "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Diyanet_TV_logo.svg/512px-Diyanet_TV_logo.svg.png",
-    "url": "https://eustr73.mediatriple.net/videoonlylive/mtikoimxnztxlive/broadcast_5e3bf95a47e07.smil/playlist.m3u8",
-    "desc": "Dini, ahlaki, kültürel programlar ve belgeseller"
+    "id": "trtmuzik",
+    "number": 49,
+    "name": "TRT Müzik",
+    "category": "Müzik",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/TRT_1_logo.svg/512px-TRT_1_logo.svg.png",
+    "url": "https://tv-trtmuzik.medya.trt.com.tr/master.m3u8",
+    "desc": "Türk Halk Müziği, Sanat Müziği ve nostaljik ezgiler"
   }
 ]
