@@ -639,6 +639,15 @@
 
     playTvBeep('select');
 
+    // If channel is configured as an in-app web stream (e.g. DMAX / TLC)
+    if (ch.type === 'web' || ch.url.startsWith('http://') && ch.url.includes('.com.tr') || ch.url.includes('dmax.com.tr') || ch.url.includes('tlctv.com.tr')) {
+      if (liveTvVideo && !liveTvVideo.paused) {
+        liveTvVideo.pause();
+      }
+      launchContent(ch.url, `${ch.name} Canlı Yayın`);
+      return;
+    }
+
     // Update UI highlights
     renderChannelsSidebar();
 

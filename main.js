@@ -104,7 +104,23 @@ function loadStoredConfig() {
   try {
     if (fs.existsSync(DATA_FILE)) {
       const data = fs.readFileSync(DATA_FILE, 'utf8');
-      return JSON.parse(data);
+      const parsed = JSON.parse(data);
+
+      // Auto-migrate: ensure default apps (like DMAX, TLC) exist if missing
+      if (parsed && Array.isArray(parsed.apps)) {
+        let changed = false;
+        DEFAULT_CONFIG.apps.forEach(defaultApp => {
+          if (!parsed.apps.some(a => a.id === defaultApp.id)) {
+            parsed.apps.push(defaultApp);
+            changed = true;
+          }
+        });
+        if (changed) {
+          saveStoredConfig(parsed);
+        }
+      }
+
+      return parsed;
     }
   } catch (err) {
     console.error('Config load failed:', err);

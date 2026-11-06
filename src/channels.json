@@ -270,8 +270,28 @@
     "desc": "Türkiye Jokey Kulübü Resmi Canlı Yarış Kanalı"
   },
   {
-    "id": "tgrtbelgesel",
+    "id": "dmax",
     "number": 31,
+    "name": "DMAX",
+    "category": "Belgesel",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/DMAX_Logo_2016.svg/512px-DMAX_Logo_2016.svg.png",
+    "url": "https://www.dmax.com.tr/canli-izle",
+    "type": "web",
+    "desc": "Doğa, macera, motor sporları ve yaşam belgeselleri"
+  },
+  {
+    "id": "tlc",
+    "number": 32,
+    "name": "TLC",
+    "category": "Belgesel",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/TLC_Logo_2019.svg/512px-TLC_Logo_2019.svg.png",
+    "url": "https://www.tlctv.com.tr/canli-izle",
+    "type": "web",
+    "desc": "Ev yenileme, yemek, yaşam tarzı ve gerçek hayat hikayeleri"
+  },
+  {
+    "id": "tgrtbelgesel",
+    "number": 33,
     "name": "TGRT Belgesel",
     "category": "Belgesel",
     "logo": "https://upload.wikimedia.org/wikipedia/tr/thumb/d/dd/TGRT_Belgesel_logo.png/512px-TGRT_Belgesel_logo.png",
@@ -280,7 +300,7 @@
   },
   {
     "id": "vavtv",
-    "number": 32,
+    "number": 34,
     "name": "Vav TV",
     "category": "Belgesel",
     "logo": "https://upload.wikimedia.org/wikipedia/tr/thumb/3/30/Vav_TV_logo.png/512px-Vav_TV_logo.png",
@@ -289,7 +309,7 @@
   },
   {
     "id": "trt2",
-    "number": 33,
+    "number": 35,
     "name": "TRT 2",
     "category": "Belgesel",
     "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/TRT_1_logo.svg/512px-TRT_1_logo.svg.png",
@@ -298,7 +318,7 @@
   },
   {
     "id": "trtturk",
-    "number": 34,
+    "number": 36,
     "name": "TRT Türk",
     "category": "Kültür",
     "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/TRT_1_logo.svg/512px-TRT_1_logo.svg.png",
@@ -307,7 +327,7 @@
   },
   {
     "id": "trtavaz",
-    "number": 35,
+    "number": 37,
     "name": "TRT Avaz",
     "category": "Kültür",
     "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/TRT_1_logo.svg/512px-TRT_1_logo.svg.png",
@@ -316,7 +336,7 @@
   },
   {
     "id": "diyanet",
-    "number": 36,
+    "number": 38,
     "name": "Diyanet TV",
     "category": "Kültür",
     "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Diyanet_TV_logo.svg/512px-Diyanet_TV_logo.svg.png",
@@ -325,7 +345,7 @@
   },
   {
     "id": "trtcocuk",
-    "number": 37,
+    "number": 39,
     "name": "TRT Çocuk",
     "category": "Çocuk",
     "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/TRT_%C3%87ocuk_logo.svg/512px-TRT_%C3%87ocuk_logo.svg.png",
@@ -334,7 +354,7 @@
   },
   {
     "id": "trtdiyanetcocuk",
-    "number": 38,
+    "number": 40,
     "name": "TRT Diyanet Çocuk",
     "category": "Çocuk",
     "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/TRT_%C3%87ocuk_logo.svg/512px-TRT_%C3%87ocuk_logo.svg.png",
@@ -343,7 +363,7 @@
   },
   {
     "id": "minikacocuk",
-    "number": 39,
+    "number": 41,
     "name": "Minika Çocuk",
     "category": "Çocuk",
     "logo": "https://upload.wikimedia.org/wikipedia/tr/thumb/d/d4/Minika_%C3%87ocuk_logo.png/512px-Minika_%C3%87ocuk_logo.png",
@@ -352,7 +372,7 @@
   },
   {
     "id": "minikago",
-    "number": 40,
+    "number": 42,
     "name": "Minika Go",
     "category": "Çocuk",
     "logo": "https://upload.wikimedia.org/wikipedia/tr/thumb/3/36/Minika_GO_logo.png/512px-Minika_GO_logo.png",
@@ -361,7 +381,7 @@
   },
   {
     "id": "kralpop",
-    "number": 41,
+    "number": 43,
     "name": "Kral Pop TV",
     "category": "Müzik",
     "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Kral_Pop_TV_logo.svg/512px-Kral_Pop_TV_logo.svg.png",
@@ -370,7 +390,7 @@
   },
   {
     "id": "powerturk",
-    "number": 42,
+    "number": 44,
     "name": "PowerTürk TV",
     "category": "Müzik",
     "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Power_T%C3%BCrk_TV_logo.svg/512px-Power_T%C3%BCrk_TV_logo.svg.png",
@@ -379,7 +399,7 @@
   },
   {
     "id": "powertv",
-    "number": 43,
+    "number": 45,
     "name": "Power TV",
     "category": "Müzik",
     "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Power_T%C3%BCrk_TV_logo.svg/512px-Power_T%C3%BCrk_TV_logo.svg.png",
@@ -388,7 +408,7 @@
   },
   {
     "id": "powerslow",
-    "number": 44,
+    "number": 46,
     "name": "Power Slow",
     "category": "Müzik",
     "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Power_T%C3%BCrk_TV_logo.svg/512px-Power_T%C3%BCrk_TV_logo.svg.png",
@@ -397,7 +417,7 @@
   },
   {
     "id": "powerdance",
-    "number": 45,
+    "number": 47,
     "name": "Power Dance",
     "category": "Müzik",
     "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Power_T%C3%BCrk_TV_logo.svg/512px-Power_T%C3%BCrk_TV_logo.svg.png",
@@ -406,7 +426,7 @@
   },
   {
     "id": "number1",
-    "number": 46,
+    "number": 48,
     "name": "Number 1 TV",
     "category": "Müzik",
     "logo": "https://upload.wikimedia.org/wikipedia/tr/thumb/7/77/Number_1_TV_logo.png/512px-Number_1_TV_logo.png",
@@ -415,7 +435,7 @@
   },
   {
     "id": "number1turk",
-    "number": 47,
+    "number": 49,
     "name": "Number 1 Türk",
     "category": "Müzik",
     "logo": "https://upload.wikimedia.org/wikipedia/tr/thumb/7/77/Number_1_TV_logo.png/512px-Number_1_TV_logo.png",
@@ -424,7 +444,7 @@
   },
   {
     "id": "dreamturk",
-    "number": 48,
+    "number": 50,
     "name": "Dream Türk",
     "category": "Müzik",
     "logo": "https://upload.wikimedia.org/wikipedia/tr/thumb/a/a2/Dream_T%C3%BCrk_logo.png/512px-Dream_T%C3%BCrk_logo.png",
@@ -433,7 +453,7 @@
   },
   {
     "id": "trtmuzik",
-    "number": 49,
+    "number": 51,
     "name": "TRT Müzik",
     "category": "Müzik",
     "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/TRT_1_logo.svg/512px-TRT_1_logo.svg.png",
