@@ -621,6 +621,12 @@ body {
 .app-card.twitch {
   background: linear-gradient(135deg, rgba(145, 70, 255, 0.35) 0%, rgba(28, 20, 45, 0.85) 100%);
 }
+.app-card.dmax {
+  background: linear-gradient(135deg, rgba(255, 85, 0, 0.35) 0%, rgba(35, 18, 10, 0.85) 100%);
+}
+.app-card.tlc {
+  background: linear-gradient(135deg, rgba(230, 0, 80, 0.35) 0%, rgba(35, 12, 22, 0.85) 100%);
+}
 
 .app-card.add-card {
   background: rgba(255, 255, 255, 0.04);

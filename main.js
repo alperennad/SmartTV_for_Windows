@@ -12,6 +12,8 @@ const DEFAULT_CONFIG = {
   apps: [
     { id: 'youtube', title: 'YouTube', icon: 'youtube', type: 'url', target: 'https://www.youtube.com/tv', color: '#FF0000', badge: 'YouTube' },
     { id: 'netflix', title: 'Netflix', icon: 'netflix', type: 'url', target: 'https://www.netflix.com', color: '#E50914', badge: 'NETFLIX' },
+    { id: 'dmax', title: 'DMAX Canlı', icon: 'dmax', type: 'url', target: 'https://www.dmax.com.tr/canli-izle', color: '#ff5500', badge: 'DMAX CANLI' },
+    { id: 'tlc', title: 'TLC Canlı', icon: 'tlc', type: 'url', target: 'https://www.tlctv.com.tr/canli-izle', color: '#e60050', badge: 'TLC CANLI' },
     { id: 'spotify', title: 'Spotify', icon: 'spotify', type: 'url', target: 'https://open.spotify.com', color: '#1DB954', badge: 'Spotify' },
     { id: 'steam', title: 'Steam', icon: 'steam', type: 'cmd', target: 'steam://open/bigpicture', color: '#1b2838', badge: 'Steam' },
     { id: 'chrome', title: 'Google', icon: 'chrome', type: 'url', target: 'https://www.google.com', color: '#4285F4', badge: 'Google' },
@@ -406,19 +408,25 @@ ipcMain.handle('open-in-app', async (event, { url, title }) => {
       return { action: 'deny' };
     });
 
-    // Inject Leanback TV Spatial Navigation whenever page loads or updates
+    // Inject Leanback TV Spatial Navigation & Clean Theater Mode whenever page loads or updates
     const navScriptPath = path.join(__dirname, 'src', 'spatial_nav.js');
-    const injectSpatialNav = () => {
+    const theaterScriptPath = path.join(__dirname, 'src', 'clean_theater.js');
+
+    const injectScripts = () => {
       try {
         if (fs.existsSync(navScriptPath)) {
           const scriptContent = fs.readFileSync(navScriptPath, 'utf8');
           webView.webContents.executeJavaScript(scriptContent, true).catch(() => {});
         }
+        if (fs.existsSync(theaterScriptPath)) {
+          const theaterContent = fs.readFileSync(theaterScriptPath, 'utf8');
+          webView.webContents.executeJavaScript(theaterContent, true).catch(() => {});
+        }
       } catch (e) {}
     };
 
-    webView.webContents.on('did-finish-load', injectSpatialNav);
-    webView.webContents.on('did-navigate-in-page', injectSpatialNav);
+    webView.webContents.on('did-finish-load', injectScripts);
+    webView.webContents.on('did-navigate-in-page', injectScripts);
   }
 
   mainWindow.contentView.addChildView(webView);
